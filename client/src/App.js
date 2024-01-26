@@ -8,6 +8,7 @@ import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile-forms/CreateProfile';
+import AddExperience from './components/profile-forms/AddExperience';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -15,6 +16,7 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 // Styles
 import './App.css';
+import EditProfile from './components/profile-forms/EditProfile';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -45,6 +47,14 @@ const App = () => {
               <Route
                 path='create-profile'
                 element={<PrivateRoute component={CreateProfile} />}
+              />
+              <Route
+                path='edit-profile'
+                element={<PrivateRoute component={EditProfile} />}
+              />
+              <Route
+                path='add-experience'
+                element={<PrivateRoute component={AddExperience} />}
               />
             </Routes>
           </section>
