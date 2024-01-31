@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
-import { Link } from 'react-router-dom';
+import { Link, unstable_HistoryRouter } from 'react-router-dom';
 
-const AddExperience = ({ addExperience, history }) => {
+const AddExperience = ({ addExperience }) => {
   const [formData, setFormData] = useState({
     company: '',
     title: '',
@@ -34,7 +34,7 @@ const AddExperience = ({ addExperience, history }) => {
         className='form'
         onSubmit={(e) => {
           e.preventDefault();
-          addExperience(formData, history);
+          addExperience(formData, unstable_HistoryRouter);
         }}
       >
         <div className='form-group'>
@@ -43,7 +43,7 @@ const AddExperience = ({ addExperience, history }) => {
             placeholder='* Job Title'
             name='title'
             value={title}
-            onChange={onchange}
+            onChange={(e) => onChange(e)}
             required
           />
         </div>
@@ -53,7 +53,7 @@ const AddExperience = ({ addExperience, history }) => {
             placeholder='* Company'
             name='company'
             value={company}
-            onChange={onchange}
+            onChange={(e) => onChange(e)}
             required
           />
         </div>
@@ -63,12 +63,17 @@ const AddExperience = ({ addExperience, history }) => {
             placeholder='Location'
             name='location'
             value={location}
-            onChange={onchange}
+            onChange={(e) => onChange(e)}
           />
         </div>
         <div className='form-group'>
           <h4>From Date</h4>
-          <input type='date' name='from' value={from} onChange={onChange} />
+          <input
+            type='date'
+            name='from'
+            value={from}
+            onChange={(e) => onChange(e)}
+          />
         </div>
         <div className='form-group'>
           <p>
