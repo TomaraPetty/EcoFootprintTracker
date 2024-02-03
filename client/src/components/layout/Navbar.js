@@ -40,7 +40,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <nav className='navbar bg-dark'>
       <h1>
         <Link to='/'>
-          <i className='fas fa-code'></i> EcoFootprint Tracker
+          <i className='fas fa-leaf'></i> EcoFootprint Tracker
         </Link>
       </h1>
       {!loading && (
