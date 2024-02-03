@@ -8,11 +8,14 @@ const DashboardActions = () => {
         <i className='fas fa-user-circle text-primary'></i> Edit Profile
       </Link>
       <Link to='/add-experience' className='btn btn-light'>
-        <i className='fab fa-black-tie text-primary'></i> Add Experience
+        <i className='fas fa-tree text-primary'></i> Add Behavior
       </Link>
       <Link to='/add-education' className='btn btn-light'>
-        <i className='fas fa-graduation-cap text-primary'></i> Add Education
+        <i className='fas fa-cart-shopping text-primary'></i> Add Shopping
       </Link>
+      <button className='btn btn-light'>
+        <i className='fas fa-burger text-primary'></i> Add Food Consumption
+      </button>
     </div>
   );
 };
