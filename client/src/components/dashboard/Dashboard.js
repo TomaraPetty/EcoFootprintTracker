@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import DashboardActions from './DashboardActions';
 import Experience from './Experience';
 import Education from './Education';
+import Consumption from './Consumption';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -31,10 +32,11 @@ const Dashboard = ({
           <DashboardActions />
           <Experience experience={profile.experience} />
           <Education education={profile.education} />
+          <Consumption education={profile.education} />
 
           <div>
             <button
-              className='btn btn-primary'
+              className='btn btn-secondary'
               onClick={() => deleteAccount(profile.account)}
             >
               <i className='fas fa-user'></i> Delete My Account
