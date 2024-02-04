@@ -34,8 +34,8 @@ const Consumption = ({ education, deleteEducation }) => {
       <table className='table'>
         <thead>
           <tr>
-            <th>School</th>
-            <th className='hide-sm'>Degree</th>
+            <th>Food Profile</th>
+            <th className='hide-sm'>Strictness</th>
             <th className='hide-sm'>Years</th>
             <th></th>
           </tr>
