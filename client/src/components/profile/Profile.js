@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
-// import ProfileExperience from './ProfileExperience';
+import ProfileExperience from './ProfileExperience';
 import ProfileEducation from './ProfileEducation';
 // import ProfileGithub from './ProfileGithub';
 import { getProfileById } from '../../actions/profile';
@@ -35,7 +35,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth }) => {
           <div className='profile-grid my-1'>
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
-            {/* <div className='profile-exp bg-white p-2'>
+            <div className='profile-exp bg-white p-2'>
               <h2 className='text-primary'>Experience</h2>
               {profile.experience.length > 0 ? (
                 <Fragment>
@@ -49,7 +49,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth }) => {
               ) : (
                 <h4>No experience credentials</h4>
               )}
-            </div> */}
+            </div>
 
             <div className='profile-edu bg-white p-2'>
               <h2 className='text-primary'>Education</h2>
