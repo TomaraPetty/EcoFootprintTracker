@@ -6,7 +6,7 @@ import Spinner from '../layout/Spinner';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 // import ProfileExperience from './ProfileExperience';
-// import ProfileEducation from './ProfileEducation';
+import ProfileEducation from './ProfileEducation';
 // import ProfileGithub from './ProfileGithub';
 import { getProfileById } from '../../actions/profile';
 
@@ -51,7 +51,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth }) => {
               )}
             </div> */}
 
-            {/* <div className='profile-edu bg-white p-2'>
+            <div className='profile-edu bg-white p-2'>
               <h2 className='text-primary'>Education</h2>
               {profile.education.length > 0 ? (
                 <Fragment>
@@ -65,7 +65,7 @@ const Profile = ({ getProfileById, profile: { profile }, auth }) => {
               ) : (
                 <h4>No education credentials</h4>
               )}
-            </div> */}
+            </div>
 
             {/* {profile.githubusername && (
               <ProfileGithub username={profile.githubusername} />
