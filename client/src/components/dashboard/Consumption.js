@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { deleteEducation } from '../../actions/profile';
 
-const Education = ({ education, deleteEducation }) => {
+const Consumption = ({ education, deleteEducation }) => {
   const educations = education.map((edu) => (
     <tr key={edu._id}>
       <td>{edu.school}</td>
@@ -30,12 +30,12 @@ const Education = ({ education, deleteEducation }) => {
 
   return (
     <Fragment>
-      <h2 className='my-2'>Shopping Habits</h2>
+      <h2 className='my-2'>Consumption Habits</h2>
       <table className='table'>
         <thead>
           <tr>
-            <th>Item</th>
-            <th className='hide-sm'>Type</th>
+            <th>Food Profile</th>
+            <th className='hide-sm'>Strictness</th>
             <th className='hide-sm'>Years</th>
             <th></th>
           </tr>
@@ -46,9 +46,9 @@ const Education = ({ education, deleteEducation }) => {
   );
 };
 
-Education.propTypes = {
+Consumption.propTypes = {
   education: PropTypes.array.isRequired,
   deleteEducation: PropTypes.func.isRequired,
 };
 
-export default connect(null, { deleteEducation })(Education);
+export default connect(null, { deleteEducation })(Consumption);

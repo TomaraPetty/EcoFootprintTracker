@@ -4,6 +4,7 @@ const config = require('config');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
+const checkObjectId = require('../../middleware/checkObjectId');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
@@ -115,11 +116,6 @@ router.post(
 router.get('/', async (req, res) => {
   try {
     const profiles = await Profile.find().populate('user', ['name', 'avatar']);
-
-    if (!profiles) {
-      return res.status(400).json({ msg: 'There are no profiles to show.' });
-    }
-
     res.json(profiles);
   } catch (err) {
     console.error(err.message);
@@ -127,28 +123,27 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @route   GET api/profile/user/:user_id
-// @desc    Get profile by user id
-// @access  Public
-router.get('/user/:user_id', async (req, res) => {
-  try {
-    const profile = await Profile.findOne({
-      user: req.params.user_id,
-    }).populate('user', ['name', 'avatar']);
+// @route    GET api/profile/user/:user_id
+// @desc     Get profile by user ID
+// @access   Public
+router.get(
+  '/user/:user_id',
+  checkObjectId('user_id'),
+  async ({ params: { user_id } }, res) => {
+    try {
+      const profile = await Profile.findOne({
+        user: user_id,
+      }).populate('user', ['name', 'avatar']);
 
-    if (!profile) {
-      return res.status(400).json({ msg: 'Profile not found' });
-    }
+      if (!profile) return res.status(400).json({ msg: 'Profile not found' });
 
-    res.json(profile);
-  } catch (err) {
-    console.error(err.message);
-    if (err.kind === 'ObjectId') {
-      return res.status(400).json({ msg: 'Profile not found' });
+      return res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).json({ msg: 'Server error' });
     }
-    res.status(500).send('Server Error');
   }
-});
+);
 
 // @route   DELETE api/profile
 // @desc    Delete profile, user & post
