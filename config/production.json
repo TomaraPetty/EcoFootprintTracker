@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://tomararuth:uAQeVq5u4twryJAf@ecotrackercluster.kq2k6t6.mongodb.net/",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "7a0a7ab5fba04a5d9409",
+  "githubSecret": "6dc249663b2678e7e2999d99e3072a8181d66bed"
+}
