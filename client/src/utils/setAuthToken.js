@@ -1,10 +1,10 @@
-import axios from 'axios';
+import apiClient from './apiClient';
 
 const setAuthToken = (token) => {
   if (token) {
-    axios.defaults.headers.common['x-auth-token'] = token;
+    apiClient.defaults.headers.common['x-auth-token'] = token;
   } else {
-    delete axios.defaults.headers.common['x-auth-token'];
+    delete apiClient.defaults.headers.common['x-auth-token'];
   }
 };
 
